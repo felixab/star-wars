@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { API_URL } from "../utils/const";
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class StarwarsService {
   private starshipsSource = new BehaviorSubject<any[]>([]);
   starships = this.starshipsSource.asObservable();
@@ -13,7 +13,7 @@ export class StarwarsService {
   }
 
   private getStarshipsAPI(pageNumber: number): Promise<any[]> {
-    return this.http.get<any[]>(`${API_URL}/?page=${pageNumber}`).toPromise();
+    return this.http.get<any[]>(`${API_URL}/starships/?page=${pageNumber}`).toPromise();
   }
 
   private async getAllStarships(): Promise<void> {
@@ -33,7 +33,7 @@ export class StarwarsService {
   private getPilotsFromURL(starshipsResults: any[]) {
     starshipsResults.forEach((starship) => {
       starship.pilots.forEach(async (pilotURL: string, index: number) => {
-        starship.pilots[index] = await this.getPilotAPI(pilotURL);
+        starship.pilots[index] = (await this.getPilotAPI(pilotURL)).name;
       });
     });
   }
