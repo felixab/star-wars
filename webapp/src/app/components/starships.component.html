@@ -1,5 +1,20 @@
-<details>
-  <summary></summary>
+<details *ngFor="let starship of starships">
+  <summary>{{starship.name}}</summary>
+  <p>Model: {{starship.model}}</p>
+  <p>Manufacturer: {{starship.manufacturer}}</p>
+  <p>Cost in credits: {{starship.cost_in_credits}}</p>
+  <p>Length: {{starship.length}}</p>
+  <p>Max atmosphering speed: {{starship.max_atmosphering_speed}}</p>
+  <p>Crew: {{starship.crew}}</p>
+  <p>Passengers: {{starship.passengers}}</p>
+  <p>Consumables: {{starship.consumables}}</p>
+  <p>Hyperdrive rating: {{starship.hyperdrive_rating}}</p>
+  <p>MGLT: {{starship.MGLT}}</p>
+  <p>Starship class: {{starship.starship_class}}</p>
+  <p *ngIf="starship.pilots.length">Pilots: </p>
+  <ul>
+    <li *ngFor="let pilotName of starship.pilots"> {{pilotName}}</li>
+  </ul>
 </details>
 
 <router-outlet></router-outlet>
