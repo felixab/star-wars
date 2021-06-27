@@ -3,7 +3,7 @@ import { NgModule } from "@angular/core";
 
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./routing/app-routing.module";
-import { StarshipsComponent } from "./components/starships.component";
+import { StarshipsComponent } from "./components/starships/starships.component";
 
 @NgModule({
   declarations: [StarshipsComponent],

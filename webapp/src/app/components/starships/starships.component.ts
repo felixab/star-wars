@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
-import { StarwarsService } from "../services/starwars.service";
+import { StarwarsService } from "../../services/starwars.service";
 
 @Component({
   selector: "app-starships",
