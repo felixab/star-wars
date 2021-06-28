@@ -1,3 +1,4 @@
+<h2>Starships</h2>
 <details *ngFor="let starship of starships">
   <summary>{{starship.name}}</summary>
   <p>Model: {{starship.model}}</p>
@@ -13,7 +14,7 @@
   <p>Starship class: {{starship.starship_class}}</p>
   <p *ngIf="starship.pilots.length">Pilots: </p>
   <ul>
-    <li *ngFor="let pilotName of starship.pilots"> {{pilotName}}</li>
+    <li *ngFor="let pilotName of starship.pilots"> <a [routerLink]="['/people', pilotName]">{{pilotName}}</a></li>
   </ul>
 </details>
 

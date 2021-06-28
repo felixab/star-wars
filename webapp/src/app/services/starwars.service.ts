@@ -56,7 +56,6 @@ export class StarwarsService {
       nextPage = peoplePage.next;
       pageNumber++;
     }
-    console.log(peopleResults);
     this.peopleSource.next(peopleResults);
   }
 
